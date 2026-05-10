@@ -3,6 +3,7 @@
   lib,
   fetchurl,
   fetchpatch,
+  fetchFromGitHub,
   autoreconfHook,
 }:
 let
@@ -16,9 +17,11 @@ in
     pname = "openssh";
     version = "10.3p1";
 
-    src = fetchurl {
-      url = urlFor version;
-      hash = "sha256-VmgqNruS3PS08Bb9jsjnQFm3mo3iXBXWcNcx59GORfQ=";
+    src = fetchFromGitHub {
+      owner = "rschaffar";
+      repo = "openssh-portable";
+      rev = "ac4a41265a3beccba7dc6f45c657298311280f01";
+      hash = "sha256-rv1E05xdn3sfOE+ED0/MH06YWnOqQNhHbxINKKFcX0Q=";
     };
 
     extraPatches = [
